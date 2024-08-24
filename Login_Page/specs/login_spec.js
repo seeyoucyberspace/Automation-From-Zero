@@ -2,6 +2,7 @@ import { validUser, invalidUser, urls } from '../../Configs/login_config.js';
 import { createDriver } from '../../config_prod.js';
 import LoginPagePO from '../page_objects/login_page_objects.js';
 import LoginPageSteps from '../steps/login_steps.js';
+import { allure } from 'allure-mocha/runtime';
 
 let driver;
 let loginSteps;
@@ -25,14 +26,14 @@ describe('Login Page Test Suite', function() {
         await loginSteps.verifyPage(urls.dashboardPage);
     });
 
-    it('User should successfully log in with invalid email, with Google method', async function() {
+    it('User should not successfully log in with invalid email, with Google method', async function() {
         await loginSteps.clickOnGoogleLogin();
         await loginSteps.setGoogleEmailValue(invalidUser.username);
         await loginSteps.clickNextButton();
         await loginSteps.verifyInvalidLoginError();
     });
 
-    it('User should successfully log in with invalid password, with Google method', async function() {
+    it('User should not successfully log in with invalid password, with Google method', async function() {
         await loginSteps.clickOnGoogleLogin();
         await loginSteps.setGoogleEmailValue(validUser.username);
         await loginSteps.clickNextButton();

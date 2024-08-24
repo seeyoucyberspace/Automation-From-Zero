@@ -11,11 +11,11 @@
     "test:allure": "npm test && npm run report:generate && npm run report:open",
     "testError": "mocha --reporter spec"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "allure-mocha": "^3.0.0-beta.10",
     "chai": "^5.1.1",
     "mocha": "^10.7.3",
     "mocha-allure-reporter": "^1.4.0",

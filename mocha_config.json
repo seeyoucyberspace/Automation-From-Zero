@@ -4,5 +4,6 @@
     "reporter": "mocha-allure-reporter",
     "reporterOptions": {
         "targetDir": "allure-results"
-    }
+    },
+    "require": ["./global-hooks.cjs"]
 }
