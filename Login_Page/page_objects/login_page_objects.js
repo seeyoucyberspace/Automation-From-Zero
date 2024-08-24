@@ -1,4 +1,3 @@
-// login_page_objects.js
 import { By } from 'selenium-webdriver';
 
 export default class LoginPagePO {
@@ -6,38 +5,28 @@ export default class LoginPagePO {
         this.driver = driver;
     }
 
-    // Локатор для поля ввода логина
-    get usernameInput() {
-        return this.driver.findElement(By.id('username'));
+    get loginGoogleButton() {
+        return this.driver.findElement(By.id('zocial-google'));
     }
 
-    // Локатор для поля ввода пароля
-    get passwordInput() {
-        return this.driver.findElement(By.id('password'));
+    get emailFieldGoogleLogin() {
+        return this.driver.findElement(By.css('[type = "email"]'));
     }
 
-    // Локатор для кнопки входа
-    get loginButton() {
-        return this.driver.findElement(By.id('login-button'));
+    get emailFieldGooglePass() {
+        return this.driver.findElement(By.css('[type = "password"]'));
     }
 
-    // Метод для ввода логина
-    async enterUsername(username) {
-        const input = await this.usernameInput;
-        await input.sendKeys(username);
+    get nextButton() {
+        return this.driver.findElement(By.css('[type = "button"][class = "VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 BqKGqe Jskylb TrZEUc lw1w4b"]'));
     }
 
-    // Метод для ввода пароля
-    async enterPassword(password) {
-        const input = await this.passwordInput;
-        await input.sendKeys(password);
+    get errorLoginMessage() {
+        return this.driver.findElement(By.css('[class= "Ekjuhf Jj6Lae"]'));
     }
 
-    // Метод для клика по кнопке входа
-    async clickLoginButton() {
-        const button = await this.loginButton;
-        await button.click();
+    get errorPassMessage() {
+        return this.driver.findElement(By.css('[class = "Ly8vae uSvLId"]'));
     }
+
 }
-
-

@@ -5,10 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha --config mocha_config.json",
+    "test": "mocha --reporter spec --config mocha_config.json",
     "report:generate": "allure generate allure-results --clean -o allure-report",
     "report:open": "allure open allure-report",
-    "test:allure": "npm test && npm run report:generate && npm run report:open"
+    "test:allure": "npm test && npm run report:generate && npm run report:open",
+    "testError": "mocha --reporter spec"
   },
 
   "keywords": [],

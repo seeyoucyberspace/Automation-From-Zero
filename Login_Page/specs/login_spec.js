@@ -1,33 +1,48 @@
 import { validUser, invalidUser, urls } from '../../Configs/login_config.js';
 import { createDriver } from '../../config_prod.js';
-import { LoginPageSteps } from '../steps/login_steps.js';
+import LoginPagePO from '../page_objects/login_page_objects.js';
+import LoginPageSteps from '../steps/login_steps.js';
+
+let driver;
+let loginSteps;
 
 describe('Login Page Test Suite', function() {
-    let driver;
-
-    before(async function() {
-        driver = await createDriver();
-    });
 
     beforeEach(async function() {
+        driver = await createDriver();
+        loginSteps = new LoginPageSteps(driver); // Передаем driver в LoginPageSteps
+
         await driver.get(urls.loginPage);
+        await loginSteps.waitForPageLoad(); // Здесь вызывается waitForPageLoad
     });
 
     it('User should successfully log in with valid credentials, with Google method', async function() {
-        await performLogin(driver, validUser.username, validUser.password);
-
-        const currentUrl = await driver.getCurrentUrl();
-        expect(currentUrl).to.equal(urls.dashboardPage);
+        await loginSteps.clickOnGoogleLogin();
+        await loginSteps.setGoogleEmailValue(validUser.username);
+        await loginSteps.clickNextButton();
+        await loginSteps.setGooglePassValue(validUser.password);
+        await loginSteps.clickNextButton();
+        await loginSteps.verifyPage(urls.dashboardPage);
     });
 
-    it('should fail to log in with invalid credentials', async function() {
-        await driver.get(urls.loginPage);
-        await performLogin(driver, invalidUser.username, invalidUser.password);
-
-        // Добавьте проверки для сценария неудачного логина
+    it('User should successfully log in with invalid email, with Google method', async function() {
+        await loginSteps.clickOnGoogleLogin();
+        await loginSteps.setGoogleEmailValue(invalidUser.username);
+        await loginSteps.clickNextButton();
+        await loginSteps.verifyInvalidLoginError();
     });
 
-    after(async function() {
+    it('User should successfully log in with invalid password, with Google method', async function() {
+        await loginSteps.clickOnGoogleLogin();
+        await loginSteps.setGoogleEmailValue(validUser.username);
+        await loginSteps.clickNextButton();
+        await loginSteps.setGooglePassValue(invalidUser.password);
+        await loginSteps.clickNextButton();
+        await loginSteps.verifyInvalidPassError();
+    });
+
+    afterEach(async function() {
         await driver.quit();
     });
+
 });
