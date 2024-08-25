@@ -9,10 +9,10 @@ describe('Login Page Test Suite', function() {
 
     beforeEach(async function() {
         driver = await createDriver();
-        loginSteps = new LoginPageSteps(driver); // Передаем driver в LoginPageSteps
+        loginSteps = new LoginPageSteps(driver);
 
         await driver.get(urls.loginPage);
-        await loginSteps.waitForPageLoad(); // Здесь вызывается waitForPageLoad
+        await loginSteps.waitForPageLoad();
     });
 
     it('User should successfully log in with valid credentials, with Google method', async function() {
@@ -21,7 +21,7 @@ describe('Login Page Test Suite', function() {
         await loginSteps.clickNextButton();
         await loginSteps.setGooglePassValue(validUser.password);
         await loginSteps.clickNextButton();
-        await loginSteps.verifyPage(urls.dashboardPage);
+        await loginSteps.verifyPage(urls.contractPage);
     });
 
     it('User should not successfully log in with invalid email, with Google method', async function() {

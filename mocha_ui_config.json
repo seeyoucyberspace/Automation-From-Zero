@@ -1,5 +1,5 @@
 {
-    "spec": "./UI/Dashboard_Page/specs/**/*.js",
+    "spec": "./UI/**/specs/**/*.js",
     "timeout": 60000,
     "reporter": "mocha-allure-reporter",
     "reporterOptions": {
