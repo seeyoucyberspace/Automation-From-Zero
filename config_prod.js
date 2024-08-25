@@ -1,5 +1,5 @@
 import { Builder } from 'selenium-webdriver';
-import * as chrome from 'selenium-webdriver/chrome.js'; // Добавляем ".js" к пути
+import * as chrome from 'selenium-webdriver/chrome.js';
 
 export async function createDriver() {
     const options = new chrome.Options();
@@ -7,7 +7,7 @@ export async function createDriver() {
 
     let driver = await new Builder()
         .forBrowser('chrome')
-        .setChromeOptions(options) // Добавляем опции Chrome
+        .setChromeOptions(options)
         .build();
 
     return driver;

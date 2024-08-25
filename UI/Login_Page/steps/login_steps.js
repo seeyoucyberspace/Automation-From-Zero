@@ -4,8 +4,8 @@ import { expect } from 'chai';
 
 export default class LoginPageSteps {
     constructor(driver) {
-        this.driver = driver; // Убедитесь, что driver сохраняется здесь
-        this.loginPageObject = new LoginPagePO(driver); // Передаем driver в LoginPagePO
+        this.driver = driver;
+        this.loginPageObject = new LoginPagePO(driver);
     }
 
     async waitForPageLoad() {

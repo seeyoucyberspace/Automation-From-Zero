@@ -1,11 +1,9 @@
 import ContractPagePO from '../page_objects/contract_page_objects.js';
-import { expect } from 'chai';
-
 
 export default class ContractPageSteps {
     constructor(driver) {
-        this.driver = driver; // Убедитесь, что driver сохраняется здесь
-        this.contractPageObject = new ContractPagePO(driver); // Передаем driver в LoginPagePO
+        this.driver = driver;
+        this.contractPageObject = new ContractPagePO(driver);
     }
 
     async clickAddressButton() {
@@ -39,6 +37,7 @@ export default class ContractPageSteps {
                 randomIndex = Math.floor(Math.random() * dropdownItems.length);
             } while (randomIndex === 5 && dropdownItems.length > 1);
 
+            await this.driver.sleep(3000);
             await dropdownItems[randomIndex].click();
         } else {
             console.log("Dropdown is empty or undefined");

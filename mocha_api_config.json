@@ -1,0 +1,8 @@
+{
+    "spec": "./API/tests/**/*.js",
+    "timeout": 60000,
+    "reporter": "mocha-allure-reporter",
+    "reporterOptions": {
+        "targetDir": "allure-results"
+    }
+}
