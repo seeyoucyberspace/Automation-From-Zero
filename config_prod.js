@@ -1,5 +1,6 @@
 import { Builder } from 'selenium-webdriver';
-import * as chrome from 'selenium-webdriver/chrome.js';
+import chrome from 'selenium-webdriver/chrome.js';
+
 
 export async function createDriver() {
     const options = new chrome.Options();

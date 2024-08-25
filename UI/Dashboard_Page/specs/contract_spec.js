@@ -1,13 +1,13 @@
 import { validUser, invalidUser, urls } from '../../../Configs/login_config.js';
 import { createDriver } from '../../../config_prod.js';
-import ContractPageSteps from '../steps/contact_steps.js';
+import ContractPageSteps from '../steps/contract_steps.js';
 import LoginPageSteps from "../../Login_Page/steps/login_steps.js";
 
 let driver;
 let contractSteps;
 let loginSteps;
 
-describe('Login Page Test Suite', function() {
+describe('Dashboard Page Test Suite', function() {
 
     beforeEach(async function() {
         driver = await createDriver();
@@ -15,7 +15,7 @@ describe('Login Page Test Suite', function() {
         loginSteps = new LoginPageSteps(driver);
 
         await driver.get(urls.loginPage);
-        await loginSteps.waitForPageLoad(); // Здесь вызывается waitForPageLoad
+        await loginSteps.waitForPageLoad();
 
         await loginSteps.clickOnGoogleLogin();
         await loginSteps.setGoogleEmailValue(validUser.username);
