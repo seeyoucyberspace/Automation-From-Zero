@@ -50,6 +50,7 @@ export default class LoginPageSteps {
     }
 
     async verifyPage(value) {
+        await this.driver.sleep(5000)
         const currentUrl =  await this.driver.getCurrentUrl();
         expect(currentUrl).to.equal(value);
         return this

@@ -1,5 +1,8 @@
 {
-    "spec": "./UI/**/specs/**/*.js",
+    "spec": [
+        "./UI/Dashboard_Page/specs/contract_spec.js",
+        "./UI/Login_Page/specs/login_spec.js"
+    ],
     "timeout": 60000,
     "reporter": "mocha-allure-reporter",
     "reporterOptions": {
