@@ -1,4 +1,4 @@
-import {getTokensFromNetwork}  from '../utils/auth.js'; // Импорт функции получения токенов
+import {getTokensFromNetwork}  from '../utils/auth.js';
 import axios from 'axios';
 import { expect } from 'chai';
 import { environment } from '../config/environment.js';
@@ -6,7 +6,7 @@ import { environment } from '../config/environment.js';
 describe('API Authorization and Latency Validation', () => {
     let accessToken;
 
-    before(async () => {
+    beforeEach(async () => {
         const tokens = await getTokensFromNetwork();
         accessToken = tokens.accessToken;
     });
@@ -20,7 +20,7 @@ describe('API Authorization and Latency Validation', () => {
             });
             expect.fail('Request should have been denied, but it was successful');
         } catch (error) {
-            expect(error.response.status).to.equal(404); // Ожидаемый код ошибки
+            expect(error.response.status).to.equal(404);
             console.log('Access correctly denied with status:', error.response.status);
         }
     });
