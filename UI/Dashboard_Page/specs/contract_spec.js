@@ -25,7 +25,7 @@ describe('Dashboard Page Test Suite', function() {
         await loginSteps.verifyPage(urls.contractPage);
     });
 
-    it.only('User should successfully log in and create new contract, verify and delete it', async function() {
+    it('User should successfully log in and create new contract, verify and delete it', async function() {
         await contractSteps.setRandomWalletAddress();
         await contractSteps.clickRandomDropdownElement();
         let addressName = await contractSteps.setRandomAddressName();
