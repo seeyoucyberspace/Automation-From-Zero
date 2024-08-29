@@ -5,14 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test:ui:Login": "mocha ./UI/Login_Page/specs/login_spec.js --config mocha_ui_config.json --reporter mocha-allure-reporter --reporter-options targetDir=allure-results",
-    "test:ui:Dashboard": "mocha ./UI/Dashboard_Page/specs/contract_spec.js --config mocha_ui_config.json --reporter mocha-allure-reporter --reporter-options targetDir=allure-results",
+    "test:ui": "mocha spec --config mocha_ui_config.json --reporter mocha-allure-reporter --reporter-options targetDir=allure-results",
     "test:api": "mocha spec --config mocha_api_config.json --reporter mocha-allure-reporter --reporter-options targetDir=allure-results",
     "report:generate": "allure generate allure-results --clean -o allure-report",
     "report:open": "allure open allure-report",
-    "test:ui:allure": "npm run test:ui && npm run report:generate && npm run report:open",
-    "test:api:allure": "npm run test:api && npm run report:generate && npm run report:open",
-    "testError": "mocha --reporter spec"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +24,6 @@
     "webdriver-manager": "^12.1.9"
   },
   "dependencies": {
-    "playwright": "^1.46.1",
+    "playwright": "^1.46.1"
   }
 }
