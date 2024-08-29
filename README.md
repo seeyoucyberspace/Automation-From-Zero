@@ -1,4 +1,4 @@
-# Test task
+# Automation from zero
 Greeting! 
 Before you start this project, make sure:
 1) You have installed NodeJs v. 20
